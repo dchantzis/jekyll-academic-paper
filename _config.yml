@@ -1,6 +1,6 @@
 markdown: kramdown
 baseurl: /jekyll-academic-paper
-url: http://dchantzis.github.io/jekyll-academic-paper/
+url: http://dchantzis.github.io/jekyll-academic-paper
 title: Paper title
 subtitle: >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nisl diam. Vestibulum tortor turpis, molestie nec tempus a, porta quis dui.
