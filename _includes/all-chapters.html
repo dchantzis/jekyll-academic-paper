@@ -1,0 +1,20 @@
+{% assign chapters = site.chapters | sort: "weight" %}
+
+{% for item in chapters %}
+
+<article itemscope itemtype="http://schema.org/BlogPosting" class="chapters gutter-1-2" id="{{item.title | slugify}}">
+
+  <h2 class="brand brand-highlight exa {% if true == item.includeTimeToRead %}push-0{% else %}push{% endif %}">{% if item.titleBefore %}{{ item.titleBefore }}: {% endif %}{{item.title}}</h2>
+  {% include chapter-time-to-read.html %}
+
+  {{ item.content | markdownify }}
+
+</article>
+
+{% if false == forloop.last %}
+  <div class="island-2">
+    <hr>
+  </div>
+{% endif %}
+
+{% endfor %}

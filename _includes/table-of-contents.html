@@ -1,0 +1,11 @@
+{% assign chapters = site.chapters | sort: "weight" %}
+
+<section class="chapters-index gutter-1-2" id="chapters-index">
+
+  <ul class="list-group push-0">
+    {% for item in chapters %}
+      <li class="push-2"><a href="{{site.baseurl}}{{item.url}}" class="brand brand-highlight push exa">{% if item.titleBefore %}{{ item.titleBefore }}: {% endif %}{{item.title}}</a></li>
+    {% endfor %}
+  </ul>
+
+</section>

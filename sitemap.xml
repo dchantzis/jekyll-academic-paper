@@ -1,0 +1,26 @@
+---
+layout: null
+sitemap:
+  include: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  {% assign pages = site.pages | sort:"sitemap.priority" %}
+  {% for item in pages %}
+    {% if item.layout %}
+      {% if item.sitemap.include == false %}{% continue %}{% endif %}
+      {% if item.url contains "page2" %}{% continue %}{% endif %}
+      {% include sitemap-entry.xml entry=item %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign chapters = site.chapters | sort:"order" %}
+  {% for item in chapters %}
+    {% if item.layout %}
+      {% if item.sitemap.include == false %}{% continue %}{% endif %}
+      {% include sitemap-entry.xml entry=item %}
+    {% endif %}
+  {% endfor %}
+
+</urlset>

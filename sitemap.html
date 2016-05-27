@@ -1,0 +1,53 @@
+---
+layout: default
+title: Sitemap
+titleBefore:
+titleAfter:
+meta:
+summary:
+author:
+image:
+keywords:
+sectionClass: sitemap
+navigationSection: main
+includeInNavigation: false
+weight: 7
+sitemap:
+  lastMod: 2016-05-02
+  priority: 1
+  changeFreq: monthly
+  include: true
+cover:
+  include: false
+  title: Image 1
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  fullsize-src: https://placeholdit.imgix.net/~text?txtsize=84&bg=cccccc&txt=cover-image&w=1653&h=1167
+---
+
+<h1 class="brand brand-highlight push exa">{{page.title}}</h1>
+<section class="{{page.sectionClass}}" id="{{page.sectionClass}}">
+
+  {% assign pages = site.pages | sort:"weight" %}
+  <h4 class="brand-highlight push-0 pad-b-1-2">Pages</h4>
+  <ul class="list-group push-0 kilo">
+  {% for item in pages %}
+    {% if item.layout %}
+      {% if item.sitemap.include == false %}{% continue %}{% endif %}
+      {% if item.url contains "page2" %}{% continue %}{% endif %}
+      <li class="list-group__item text-capitalize"><a href="{{site.baseurl}}{{item.url}}">{{item.title | capitalize}}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+  {% assign chapter = site.chapters | sort:"weight" %}
+  <h4 class="brand-highlight push-0 pad-b-1-2 pad-t-1-2">Chapters</h4>
+  <ul class="list-group push-0 kilo">
+  {% for item in chapter %}
+    {% if item.layout %}
+      {% if item.sitemap.include == false %}{% continue %}{% endif %}
+      <li class="list-group__item"><a href="{{site.baseurl}}{{item.url}}">{% if item.titleBefore %}{{ item.titleBefore }}: {% endif %}{{item.title | capitalize}}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+</section>

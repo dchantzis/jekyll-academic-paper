@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article itemscope itemtype="http://schema.org/BlogPosting" class="{{page.sectionClass}} gutter-1-2" id="{{page.title | slugify}}">
+
+  {% include post-meta-tags.html %}
+
+  <h1 class="brand brand-highlight exa {% if true == page.includeTimeToRead %}push-0{% else %}push{% endif %}">{% if page.titleBefore %}{{ page.titleBefore }}: {% endif %}{{page.title}}</h1>
+  {% assign item = page %}
+  {% include chapter-time-to-read.html %}
+
+  {{ content | markdownify }}
+
+</article>
+
+{% include pagination/chapter-pagination.html %}

@@ -1,0 +1,49 @@
+<div class="header-btn push-0">
+
+  <label for="mobileNavToggle" class="mobile-nav-toggle-label">
+    <div class="top-bar"></div>
+    <div class="middle-bar"></div>
+    <div class="bottom-bar"></div>
+  </label>
+
+</div>
+
+<header class="masthead push-0 pad-t {% if '/' != page.url %}hidden{% endif %}">
+
+  <div class="header-content island brand-color">
+
+    <div class="info-box-a micro pad-b-2">
+        <div class="institute-info push-1-2">
+          <div><a href="{{site.institute.title-url}}" target="_blank" rel="external">{{site.institute.title}}</a></div>
+          <div><a href="{{site.institute.division-url}}" target="_blank" rel="external">{{site.institute.division}}</a></div>
+          <div><a href="{{site.institute.programme-url}}" target="_blank" rel="external">{{site.institute.programme}}</a></div>
+        </div>
+        <div class="course-info">
+          <div class="brand-highlight brand-color">{{site.course.title}} ({{site.course.id}})</div>
+          <div class="brand-highlight brand-color">Course organizer: {{site.course.organizer}}</div>
+        </div>
+    </div>
+
+    <div class="info-box-b">
+        <div class="logo-wrapper push">
+        {% if '/' == page.url %}
+          <a href="{{site.baseurl}}/">
+            <h1 class="brand brand-highlight brand-color logo push-1-2 giga text-upper ">{{ site.title }}</h1>
+          </a>
+          <h2 class="logo push-0 kilo normal"><em>{{ site.subtitle }}</em></h2>
+        {% else %}
+          <a href="{{site.baseurl}}/">
+            <h2 class="brand brand-highlight brand-color logo push-1-2 giga text-upper ">{{ site.title }}</h2>
+          </a>
+          <h3 class="logo push-0 kilo normal"><em>{{ site.subtitle }}</em></h3>
+        {% endif %}
+        </div>
+
+        <div class="student-info milli">
+          by <a href="{{site.baseurl}}/contact/">{{site.student-info.name}}</a> ({{site.student-info.university-id}})
+        </div>
+        <div class="milli">Edinburgh, 2009</div>
+    </div>
+
+  </div>
+</header>

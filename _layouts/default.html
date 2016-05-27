@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+  <meta charset="utf-8">
+  <title>{% if page.titleBefore %}{{page.titleBefore}} · {% endif %}{% if page.title %} {{page.title}} · {% endif %}Dimitrios Chantzis{% if page.titleAfter %} · {{page.titleAfter}} {% endif %}</title>
+
+  <meta name="handheldfriendly" content="true">
+  <meta name="mobileoptimized" content="240">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="description" content="{{ page.meta }}">
+  <meta name="author" content="{{ page.author }}">
+  <meta name="keywords" content="{% for keyword in site.data.meta-keywords %}{{keyword}}, {% endfor %}">
+
+  <meta property="og:title" content="{% if page.titleBefore %}{{page.titleBefore}} · {% endif %}{% if page.title %}{{page.title}} · {% endif %}{{site.website-title}}{% if page.titleAfter %} · {{page.titleAfter}}{% endif %}">
+  <meta property="og:image" content="{{ page.image }}">
+  <meta property="og:description" content="{{ page.meta }}">
+
+  <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700' rel='stylesheet' type='text/css'>
+
+  <link href="favicon.ico" rel="shortcut icon">
+
+</head>
+
+<body>
+
+  {% include sidebar.html %}
+
+  <input type="checkbox" class="mobile-nav-toggle-box" name="mobile-nav-toggle" id="mobileNavToggle">
+  <div class="main-wrapper">
+
+    {% include header.html %}
+
+    {% if page.cover and page.cover.include %}
+      <div class="cover-image" style="background-image: url({{page.cover.fullsize-src}});"></div>
+    {% endif %}
+
+    <main class="main-content island-2 {% if '/' != page.url %}no-header{% endif %}">
+      <div class="center">
+      {{ content | strip }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+
+  </div>
+
+  <script src="{{site.baseurl}}/assets/js/jquery-1.12.3.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/jquery.localScroll.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/jquery.scrollTo.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/main.js"></script>
+
+  <script src="{{site.baseurl}}/assets/js/map.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google-api-key }}&callback=initMap"></script>
+
+</body>
+
+</html>

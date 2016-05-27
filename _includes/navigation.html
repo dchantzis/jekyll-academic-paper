@@ -1,0 +1,47 @@
+{% assign site-pages = site.pages | sort:"weight"  %}
+{% assign chapters = site.chapters | sort: "weight" %}
+
+<nav class="navigation pad-t">
+
+  <ul class="main-nav list-group push-0 island">
+
+    {% for item in site-pages %}
+      {% if item.navigationSection contains include.navSection %}
+          {% if item.url contains "page2" %}{% continue %}{% endif %}
+          {% if true == item.includeInNavigation %}
+            <li class="list-group__item push-1-4">
+              <a class="milli {% if page.url == item.url %}current{% endif %}" href="{{site.baseurl}}{{item.url}}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="pad-t"></div>
+
+    {% for item in chapters %}
+      {% if item.navigationSection contains include.navSection %}
+
+          {% if true == item.includeInNavigation %}
+
+            {% if "/all-chapters/" != page.url %}
+              {% capture item-url %}{{site.baseurl}}{{item.url}}{% endcapture %}
+              {% assign site-layout = ""; %}
+            {% else %}
+              {% capture item-url %}#{{item.title | slugify}}{% endcapture %}
+              {% assign site-layout = "single-page-layout"; %}
+            {% endif %}
+
+            <li class="list-group__item {% if false == forloop.last %}push-1-4{% endif %}">
+              <a class="milli {% if page.url == item.url %}current{% endif %} {{site-layout}}" href="{{item-url}}">
+                {% if item.titleBefore %}{{ item.titleBefore }}: {% endif %}<em>{{ item.title }}</em>
+              </a>
+            </li>
+          {% endif %}
+      {% endif %}
+    {% endfor %}
+
+  </ul>
+
+</nav>

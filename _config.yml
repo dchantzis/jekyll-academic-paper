@@ -1,0 +1,52 @@
+markdown: kramdown
+baseurl: /jekyll-academic-paper
+url: http://dchantzis.github.io/jekyll-academic-paper/
+title: Paper title
+subtitle: >
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nisl diam. Vestibulum tortor turpis, molestie nec tempus a, porta quis dui.
+description: Description
+author: John Smith
+e-mail: demo@email.smth
+phone:
+exclude: ['README.md', '.gitignore']
+permalink: pretty
+include-analytics-tracking: false
+google-api-key:
+analytics :
+  provider : google
+  google :
+    tracking_id: ''
+google-maps:
+  latitude: 18.205909
+  longitude: -67.0538262
+  zoom: 8
+collections:
+  chapters:
+    output: true
+    permalink: /chapters/:path/
+contact-info:
+  name: John Smith
+  job-title: Job title
+  e-mail: demo@email.smth
+  phone: +00 (0) 000000000
+  website-url:
+  address:
+      street: Street
+      locality: Locality
+      region: Region
+      country: Country
+      postal-code: Post code
+student-info:
+  name: John Smith
+  university-id: s010101x
+institute:
+  title: University Title
+  title-url: '#'
+  division: Division
+  division-url: '#'
+  programme: Programme
+  programme-url: '#'
+course:
+  title: Course
+  id: P00000
+  organizer: Jane Smith
